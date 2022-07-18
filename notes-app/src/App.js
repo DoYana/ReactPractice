@@ -7,7 +7,8 @@ import {nanoid} from "nanoid"
 
 export default function App() {
     
-    const [notes, setNotes] = React.useState(JSON.parse(localStorage.getItem("notes")) || []);
+    //lazy state initialisation
+    const [notes, setNotes] = React.useState(() => JSON.parse(localStorage.getItem("notes")) || []);
     const [currentNoteId, setCurrentNoteId] = React.useState(
         (notes[0] && notes[0].id) || ""
     )
@@ -26,11 +27,20 @@ export default function App() {
     }
     
     function updateNote(text) {
-        setNotes(oldNotes => oldNotes.map(oldNote => {
-            return oldNote.id === currentNoteId
-                ? { ...oldNote, body: text }
-                : oldNote
-        }))
+        //move modified note to the top of the list
+        setNotes(oldNotes => {
+            let newNotes =[];
+            for(let i = 0; i< oldNotes.length; i++) {
+                const oldNote = oldNotes[iw];
+                if(oldNote.id === currentNoteId){
+                    newNotes.unshift({...oldNote, body: text})
+                }else{
+                    newNotes.push(oldNote)
+                }
+            }
+            return newNotes;
+        })
+        
     }
     
     function findCurrentNote() {
