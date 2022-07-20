@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 3rem;
+    margin: 0;
+    background-color: #0B2434;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    font-family: 'Karla', sans-serif;
+
+}
+
+main {
+    height:70vh;
+    padding: 1em;
+    background: #F5F5F5;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
+
+
+.dice-container {
+    display: grid;
+    grid-template: auto auto / repeat(5, 1fr);
+    gap:1em;
+}
+
+.roll-dice{
+    height: 5rem;
+    width: calc(12.5rem);
+    border:none;
+    border-radius: 5px;
+    background-color: #5035FF;
+    color: white;
+    font-family: 'Karla', sans-serif;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+.roll-dice:focus {
+    outline: none;
+}
+
+.roll-dice:active {
+    box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
