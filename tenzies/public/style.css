@@ -2,6 +2,20 @@
     box-sizing: border-box;
 }
 
+
+.title {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.instructions {
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    margin-top: 0;
+    text-align: center;
+}
+
 body {
     font-size: 3rem;
     margin: 0;
